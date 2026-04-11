@@ -39,6 +39,24 @@ Main Menu → Service Layer → DAO Layer → MySQL Database
 
 ---
 
+🗂️ Project Structure
+env-monitoring-system/
+│
+├── src/com/envmonitoring
+│   ├── config
+│   ├── model
+│   ├── dao
+│   ├── service
+│   ├── util
+│   └── main
+│
+├── database
+│   └── env_monitoring.sql
+│
+└── README.md
+
+---
+
 ## 🗂️ Modules Implemented
 
 ### 🔹 1. Sensor Module
