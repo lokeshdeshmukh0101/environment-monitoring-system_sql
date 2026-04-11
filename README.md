@@ -1,78 +1,155 @@
 # 🌍 Environmental Sensor Monitoring System
 
-A **Java + MySQL based console application** designed to monitor environmental conditions using sensors, generate alerts, and manage maintenance efficiently.
+A **Java + MySQL based console application** designed to monitor environmental sensors, manage users, generate alerts, and maintain system analytics efficiently.
 
 ---
 
 ## 📌 Project Overview
 
-This system simulates a **real-world environmental monitoring platform** used in smart cities and industries.
+This system simulates a **real-world environmental monitoring platform** used in industries and smart cities.
 
-It allows users to:
+It allows:
 
-* Manage sensors and locations
-* Record environmental readings
-* Automatically detect threshold violations
-* Generate alerts using SQL triggers
-* Maintain service logs and schedules
-* Analyze system data using SQL procedures
+* Sensor monitoring
+* User management
+* Alert generation
+* Maintenance tracking
+* Data analytics
 
 ---
 
 ## ⚙️ Technologies Used
 
-| Technology        | Purpose               |
-| ----------------- | --------------------- |
-| Java (Core)       | Application logic     |
-| JDBC              | Database connectivity |
-| MySQL             | Data storage          |
-| SQL Triggers      | Automation            |
-| Stored Procedures | Analytics             |
-| SQL Functions     | Calculations          |
-| OOP Concepts      | Design structure      |
+| Technology        | Purpose             |
+| ----------------- | ------------------- |
+| Java (Core)       | Application logic   |
+| JDBC              | Database connection |
+| MySQL             | Database            |
+| SQL Triggers      | Automation          |
+| Stored Procedures | Reports             |
+| SQL Functions     | Calculations        |
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ System Architecture
 
-The system follows a **3-layer architecture**:
-
-```
-Main (UI Layer)
-   ↓
-Service Layer (Business Logic)
-   ↓
-DAO Layer (Database Access)
-   ↓
-MySQL Database
+```text id="arch2"
+Main Menu → Service Layer → DAO Layer → MySQL Database
 ```
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Modules Implemented
 
-```
-env-monitoring-system/
-│
-├── src
-│   ├── config
-│   ├── model
-│   ├── dao
-│   ├── service
-│   ├── util
-│   └── main
-│
-├── database
-│   └── env_monitoring.sql
-│
-└── README.md
-```
+### 🔹 1. Sensor Module
+
+* Add Sensor
+* View Sensors
+* Update Sensor Status
+* Delete Sensor
+* Add Sensor Reading
+* View Sensor Readings
 
 ---
 
-## 🗄️ Database Design
+### 🔹 2. Threshold Module
 
-The system uses a **relational database** with the following tables:
+* View Thresholds
+* Update Threshold Values
+
+---
+
+### 🔹 3. Location Module
+
+* Add Location
+* View Locations (Tabular Format)
+* Delete Location
+
+---
+
+### 🔹 4. User Module (User Management)
+
+* Register New User
+* View Users (Tabular Format)
+* Update User Role (ADMIN / OPERATOR / VIEWER)
+* Delete User
+
+---
+
+### 🔹 5. Maintenance Module
+
+* Add Maintenance Log
+* View Maintenance Logs
+* Automatic Next Maintenance Calculation
+
+---
+
+### 🔹 6. Alert Module
+
+* View Alerts (Sensor Name + Time + Severity)
+* Alerts auto-generated using triggers
+
+---
+
+### 🔹 7. Analytics Module
+
+* Sensors per Location
+* Sensors by Type
+* Average Sensor Readings
+* Recent Alerts
+* Maintenance Schedule
+
+---
+
+## ⚡ Key Features
+
+### ✅ User Management
+
+* Role-based system (Admin / Operator / Viewer)
+
+### ✅ Sensor Monitoring
+
+* Real-time sensor data recording
+
+### ✅ Automatic Alerts (Trigger)
+
+* Alerts generated when threshold is exceeded
+
+### ✅ Maintenance Tracking
+
+* Automatic next service date
+
+### ✅ Data Analytics
+
+* Multiple SQL-based reports
+
+---
+
+## 🔄 SQL Automation
+
+### 🔸 Triggers
+
+* `trg_auto_alert` → generates alerts automatically
+* `trg_next_maintenance` → calculates next service date
+
+---
+
+### 🔸 Stored Procedures
+
+* `sp_sensors_per_location()`
+* `sp_maintenance_report()`
+* `sp_alert_summary()`
+
+---
+
+### 🔸 Functions
+
+* `fn_sensor_count(typeId)`
+* `fn_is_critical(sensorId)`
+
+---
+
+## 📊 Database Tables
 
 * Sensor_Type
 * Location
@@ -86,144 +163,55 @@ The system uses a **relational database** with the following tables:
 
 ---
 
-## ⚡ Key Features
+## ▶️ How to Run
 
-### 🔹 Sensor Management
+### Step 1
 
-* Add / Update / Delete sensors
-* Track installation and status
+Import database:
 
-### 🔹 Sensor Readings
-
-* Record real-time environmental data
-* Store timestamped readings
-
-### 🔹 Threshold Monitoring
-
-* Define safe ranges for parameters
-* Detect abnormal conditions
-
-### 🔹 Automatic Alerts (Trigger)
-
-* Alerts generated when readings exceed limits
-
-### 🔹 Maintenance Scheduling
-
-* Logs maintenance activities
-* Automatically calculates next service date
-
-### 🔹 Analytics Module
-
-* Sensors per location
-* Sensors by type
-* Average readings
-* Maintenance schedule
-* Alert summaries
-
----
-
-## 🔄 SQL Automation
-
-### 🔸 Trigger Used
-
-* `trg_auto_alert` → Generates alerts automatically
-* `trg_next_maintenance` → Calculates next maintenance date
-
----
-
-### 🔸 Stored Procedures
-
-* `sp_sensors_per_location()`
-* `sp_maintenance_report()`
-* `sp_alert_summary()`
-
----
-
-### 🔸 SQL Functions
-
-* `fn_sensor_count(typeId)` → Returns number of sensors
-* `fn_is_critical(sensorId)` → Detects critical sensor
-
----
-
-## ▶️ How to Run the Project
-
-### Step 1: Setup Database
-
-Import SQL file:
-
-```
+```text id="run1"
 database/env_monitoring.sql
 ```
 
----
+### Step 2
 
-### Step 2: Configure Database Connection
+Update DB connection:
 
-Update credentials in:
-
-```
+```text id="run2"
 DBConnection.java
 ```
 
-Example:
-
-```java
-jdbc:mysql://localhost:3306/env_monitoring
-```
-
----
-
-### Step 3: Run Application
+### Step 3
 
 Run:
 
-```
+```text id="run3"
 Main.java
 ```
 
 ---
 
-## 📊 Sample Inputs
+## 📊 Sample Flow
 
-### Add Sensor
-
+```text id="flow1"
+Add Location → Add Sensor → Add Reading → Alert Triggered → Add Maintenance → View Analytics
 ```
-Temp Sensor A
-TMP100
-Bosch
-2025-04-01
-1
-1
-1
-```
-
-### Add Reading
-
-```
-Sensor ID: 1
-Value: 45
-```
-
-👉 This will automatically generate an alert.
 
 ---
 
 ## 🧠 Concepts Used
 
-### Java Concepts
+### Java
 
-* Inheritance
+* OOP (Inheritance, Polymorphism)
 * Interfaces
-* Polymorphism
 * Exception Handling
-* Packages
 * Collections (List)
+* Packages
 
-### DBMS Concepts
+### DBMS
 
 * Normalization
-* Primary & Foreign Keys
 * Joins
 * Triggers
 * Procedures
@@ -231,39 +219,30 @@ Value: 45
 
 ---
 
-## 🌐 Real-World Applications
+## 🌐 Applications
 
-* Smart Cities
-* Pollution Monitoring
-* Industrial Safety Systems
-* Weather Monitoring
-* Agriculture Systems
+* Smart City Monitoring
+* Pollution Control Systems
+* Industrial Safety Monitoring
+* Environmental Research
 
 ---
 
-## 🚀 Future Improvements
+## 🚀 Future Enhancements
 
-* Web Dashboard (Spring Boot / React)
-* Real-time sensor integration (IoT)
-* Email/SMS alert system
-* Machine learning for predictive maintenance
+* Web Interface (Spring Boot)
+* IoT Integration
+* Real-time dashboards
+* Email/SMS alerts
 
 ---
 
 ## 👨‍💻 Author
 
-**Lokesh Deshmukh**  
-B.Tech CSE Student  
-Environmental Monitoring System (DBMS + Java Project)  
+Lokesh Deshmukh
+B.Tech Computer Science Engineering
 
----
-
-## ⭐ GitHub Usage
-
-If you find this project useful:
-
-* ⭐ Star the repository
-* 🍴 Fork it
-* 🛠️ Improve it
+Academic Project – Environmental Monitoring System
+(DBMS + Java + MySQL)
 
 ---
