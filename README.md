@@ -242,6 +242,9 @@ Add Location → Add Sensor → Add Reading → Alert Triggered → Add Maintena
 Lokesh Deshmukh
 B.Tech Computer Science Engineering
 
+Lakshya Agarwal
+B.Tech Computer Science Engineering
+
 Academic Project – Environmental Monitoring System
 (DBMS + Java + MySQL)
 
