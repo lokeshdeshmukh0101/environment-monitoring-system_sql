@@ -54,7 +54,7 @@ MySQL Database
 ```
 env-monitoring-system/
 │
-├── src/
+├── src
 │   ├── config
 │   ├── model
 │   ├── dao
