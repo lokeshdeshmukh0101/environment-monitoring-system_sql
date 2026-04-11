@@ -252,8 +252,9 @@ Value: 45
 
 ## 👨‍💻 Author
 
-**Environmental Monitoring System**
-Academic Project (DBMS + Java)
+**Lokesh Deshmukh**  
+B.Tech CSE Student  
+Environmental Monitoring System (DBMS + Java Project)  
 
 ---
 
